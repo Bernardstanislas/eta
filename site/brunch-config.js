@@ -10,7 +10,11 @@ exports.config = {
                 'javascripts/vendor.js': /^(bower_components|vendor)/
             },
             order: {
-                before: [],
+                before: [
+                    'vendor/react.min.js',
+                    'vendor/focus.js',
+                    'vendor/focus-components.js'
+                ],
                 after: []
             }
         },
@@ -41,6 +45,10 @@ exports.config = {
                 stripTypes: false
             },
             babel: false
+        },
+        browserSync: {
+            port: 8080,
+            logLevel: "debug"
         }
     }
 };
