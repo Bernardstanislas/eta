@@ -12,6 +12,9 @@ exports.config = {
             order: {
                 before: [
                     'vendor/react.min.js',
+                    'vendor/jquery.min.js',
+                    'vendor/lodash.js',
+                    'vendor/backbone.js',
                     'vendor/focus.js',
                     'vendor/focus-components.js'
                 ],
@@ -26,6 +29,11 @@ exports.config = {
         }
     },
     plugins: {
+        babel: {
+            ignore: [/^(bower_components|vendor)/,
+                'app/legacyES5Code/**/*'],
+            pattern: /\.(es6|jsx|js)$/
+        },
         uglify: {
             mangle: false,
             compress: {
@@ -40,11 +48,9 @@ exports.config = {
         },
         react: {
             transformOptions: {
-                harmony: true,
                 sourceMap: false,
-                stripTypes: false
             },
-            babel: false
+            babel: true
         },
         browserSync: {
             port: 8080,
