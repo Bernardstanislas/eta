@@ -11,8 +11,8 @@ exports.config = {
             },
             order: {
                 before: [
-                    'vendor/react.min.js',
-                    'vendor/jquery.min.js',
+                    'vendor/react.js',
+                    'vendor/jquery.js',
                     'vendor/lodash.js',
                     'vendor/backbone.js',
                     'vendor/focus.js',
