@@ -26,7 +26,7 @@
     "clean-css-brunch": "^1.7.2",
     "css-brunch": "^1.7.0",
     "eslint": "^0.21.2",
-    "focusjs": "^0.6.0",
+    "less-brunch": "^1.8.1",
     "react-brunch": "^1.0.9"
   },
   "devDependencies": {

@@ -6,8 +6,8 @@ exports.config = {
     files: {
         javascripts: {
             joinTo: {
-                'web/app.js': /^app/,
-                'web/vendor.js': /^(bower_components|vendor)/
+                'javascripts/app.js': /^app/,
+                'javascripts/vendor.js': /^(bower_components|vendor)/
             },
             order: {
                 before: [],
@@ -41,10 +41,6 @@ exports.config = {
                 stripTypes: false
             },
             babel: false
-        },
-        browserSync: {
-            port: 8080,
-            logLevel: "debug"
         }
     }
 };
