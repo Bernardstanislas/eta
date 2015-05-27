@@ -1,11 +1,4 @@
-let TestComponent = React.createClass({
-    render() {
-        return (
-            <div className='lol' test='value'></div>
-        );
-    }
-});
+//let test = require('views/test');
+var Home = require('views/home');
 
-console.info('Tkt je suis exécuté :)');
-
-module.exports = TestComponent;
+React.render(React.createElement(Home), document.getElementById('page'));

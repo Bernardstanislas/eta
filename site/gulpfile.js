@@ -17,13 +17,13 @@ var cssDestination = baseDestination + '/stylesheets';
 
 gulp.task('src', function() {
     return browserify({
-            entries: ['./index.js'],
-            basedir: 'src',
-            extensions: ['js', 'jsx'],
-            standalone: 'ETA'
+            entries: ['./src/index.js'],
+            paths: ['./src'],
+            extensions: ['.jsx'],
+            fullPaths: true
         })
-        .transform(babelify)
         .transform(reactify)
+        .transform(babelify)
         .bundle()
         .pipe(source('app.js'))
         .pipe(gulp.dest(jsDestination));
