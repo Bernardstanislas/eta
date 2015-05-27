@@ -5,3 +5,7 @@ let TestComponent = React.createClass({
         );
     }
 });
+
+console.info('Tkt je suis exécuté :)');
+
+module.exports = TestComponent;

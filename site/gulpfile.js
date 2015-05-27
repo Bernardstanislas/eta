@@ -9,24 +9,27 @@ var concat = require('gulp-concat');
 var es = require('event-stream');
 var addSrc = require('gulp-add-src');
 var server = require('gulp-server-livereload');
+var less = require('gulp-less');
 
 var baseDestination = './web';
 var jsDestination = baseDestination + '/javascripts';
+var cssDestination = baseDestination + '/stylesheets';
 
-gulp.task('browserify-src', ['assets'], function() {
+gulp.task('src', function() {
     return browserify({
             entries: ['./index.js'],
             basedir: 'src',
             extensions: ['js', 'jsx'],
             standalone: 'ETA'
         })
-        .transform([babelify, reactify])
+        .transform(babelify)
+        .transform(reactify)
         .bundle()
         .pipe(source('app.js'))
         .pipe(gulp.dest(jsDestination));
 });
 
-gulp.task('browserify-vendor', function() {
+gulp.task('vendor', function() {
     return browserify('src/vendor.js')
         .bundle()
         .pipe(source('vendor.js'))
@@ -40,20 +43,23 @@ gulp.task('assets', function() {
         .pipe(gulp.dest(baseDestination));
 });
 
-gulp.task('watch', ['browserify-src'], function() {
-    gulp.watch('./src/**/*', ['browserify-src']);
-    gulp.watch(['./src/vendor.js', 'vendor/*'], ['browserify-vendor']);
+gulp.task('style', function() {
+    return gulp.src('src/style/**/*.less')
+        .pipe(concat('style.css'))
+        .pipe(gulp.dest(cssDestination));
 });
 
-gulp.task('serve', ['webserver', 'watch'], function() {
+gulp.task('watch', ['src', 'style', 'assets'], function() {
+    gulp.watch(['./src/**/*.js', './src/**/*.jsx'], ['src']);
+    gulp.watch('./src/style/**/*.less', ['style']);
+    gulp.watch(['./src/vendor.js', 'vendor/*'], ['vendor']);
 });
 
-gulp.task('webserver', ['browserify-src'], function() {
+gulp.task('serve', ['watch'], function() {
     gulp.src('web')
         .pipe(server({
             livereload: true,
             open: true,
             log: 'debug'
-            //clientConsole: true
         }));
 })
