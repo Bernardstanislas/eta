@@ -30,6 +30,9 @@ gulp.task('src', function() {
 });
 
 gulp.task('vendor', function() {
+    gulp.src('vendor/*.css')
+        .pipe(streamify(concat('vendor.css')))
+        .pipe(gulp.dest(cssDestination));
     return browserify('src/vendor.js')
         .bundle()
         .pipe(source('vendor.js'))
