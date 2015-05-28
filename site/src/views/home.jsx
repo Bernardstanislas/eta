@@ -1,6 +1,8 @@
 let Home = React.createClass({
     render() {
-        <div>Hey lolz</div>
+        return (
+            <div>Home</div>
+            );
     }
 });
 

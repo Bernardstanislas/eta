@@ -50,6 +50,7 @@ gulp.task('style', function() {
 });
 
 gulp.task('watch', ['src', 'style', 'assets'], function() {
+    gulp.watch('./src/assets/*', ['assets']);
     gulp.watch(['./src/**/*.js', './src/**/*.jsx'], ['src']);
     gulp.watch('./src/style/**/*.less', ['style']);
     gulp.watch(['./src/vendor.js', 'vendor/*'], ['vendor']);
