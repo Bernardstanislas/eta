@@ -1,3 +1,40 @@
 p {
   font-size: 3em;
 }
+
+
+@-webkit-keyframes etaHome {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale3d(.9, .9, .9);
+    transform: scale3d(.9, .9, .9);
+  }
+
+  40% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes etaHome {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale3d(.9, .9, .9);
+    transform: scale3d(.9, .9, .9);
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+.etaHome {
+  -webkit-animation-name: etaHome;
+  animation-name: etaHome;
+  -webkit-animation-duration: 3s;
+  animation-duration: 3s;
+  opacity: 0;
+}
