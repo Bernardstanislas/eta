@@ -9,7 +9,8 @@ var concat = require('gulp-concat');
 var es = require('event-stream');
 var addSrc = require('gulp-add-src');
 var server = require('gulp-server-livereload');
-var less = require('gulp-less');
+var sass = require('gulp-sass');
+var order = require('gulp-order');
 
 var baseDestination = './web';
 var jsDestination = baseDestination + '/javascripts';
@@ -29,14 +30,22 @@ gulp.task('src', function() {
         .pipe(gulp.dest(jsDestination));
 });
 
-gulp.task('vendor', function() {
+gulp.task('focus', function() {
+   return gulp.src('../../focus-components/dist/js/*.js')
+       .pipe(gulp.dest(jsDestination));
+});
+
+gulp.task('vendor', ['focus'], function() {
     gulp.src('vendor/*.css')
         .pipe(streamify(concat('vendor.css')))
         .pipe(gulp.dest(cssDestination));
+    gulp.src('vendor/*.js')
+        .pipe(addSrc('vendor/*.js'))
+        .pipe(streamify(concat('vendor-files.js')))
+        .pipe(gulp.dest(jsDestination));
     return browserify('src/vendor.js')
         .bundle()
         .pipe(source('vendor.js'))
-        .pipe(addSrc('vendor/*.js'))
         .pipe(streamify(concat('vendor.js')))
         .pipe(gulp.dest(jsDestination));
 });
@@ -47,7 +56,8 @@ gulp.task('assets', function() {
 });
 
 gulp.task('style', function() {
-    return gulp.src('src/style/**/*.less')
+    return gulp.src('src/style/**/*.scss')
+        .pipe(sass().on('error', sass.logError))
         .pipe(concat('style.css'))
         .pipe(gulp.dest(cssDestination));
 });
