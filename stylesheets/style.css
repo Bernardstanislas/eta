@@ -1,0 +1,39 @@
+p {
+  font-size: 3em; }
+
+@-webkit-keyframes etaHome {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale3d(0.9, 0.9, 0.9);
+    transform: scale3d(0.9, 0.9, 0.9); }
+  40% {
+    opacity: 1; }
+  50% {
+    opacity: 0; } }
+
+@keyframes etaHome {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale3d(0.9, 0.9, 0.9);
+    transform: scale3d(0.9, 0.9, 0.9); }
+  70% {
+    opacity: 1; } }
+
+.animatedIntroduction {
+  -webkit-animation-name: etaHome;
+  animation-name: etaHome;
+  -webkit-animation-duration: 3s;
+  animation-duration: 3s;
+  opacity: 0; }
+
+.introduction {
+  font-size: 40vh;
+  text-align: center; }
+
+[data-eta='header'] .row {
+  padding: 20px; }
+  [data-eta='header'] .row .col-md-4 {
+    text-align: center;
+    padding: 20px;
+    font-size: 2em; }
+
