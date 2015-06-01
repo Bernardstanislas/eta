@@ -1,12 +1,14 @@
+let Link = ReactRouter.Link;
+
 let Header = React.createClass({
     render() {
         return (
             <div data-eta='header' className='container'>
                 <div className='row'>
-                    {['Projets', 'Agence', 'Contact'].map((onglet) => {
+                    {['Accueil', 'Projets', 'Agence', 'Contact'].map((onglet) => {
                         return (
                             <div className='col-md-4'>
-                                {onglet}
+                                <Link to={onglet}>{onglet}</Link>
                             </div>
                         );
                     })}
