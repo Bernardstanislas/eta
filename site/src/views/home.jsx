@@ -1,7 +1,11 @@
+let Header = require('views/header');
+
 let Home = React.createClass({
     render() {
         return (
-            <div className='jumbotron'>Home</div>
+            <div className='page'>
+                <Header/>
+            </div>
         );
     }
 });

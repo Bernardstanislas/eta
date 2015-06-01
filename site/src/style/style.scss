@@ -26,15 +26,20 @@ p {
     transform: scale3d(.9, .9, .9);
   }
 
-  50% {
+  70% {
     opacity: 1;
   }
 }
 
-.etaHome {
+.animatedIntroduction {
   -webkit-animation-name: etaHome;
   animation-name: etaHome;
   -webkit-animation-duration: 3s;
   animation-duration: 3s;
   opacity: 0;
+}
+
+.introduction {
+  font-size: 40vh;
+  text-align: center;
 }
