@@ -11,6 +11,8 @@ var addSrc = require('gulp-add-src');
 var server = require('gulp-server-livereload');
 var sass = require('gulp-sass');
 var order = require('gulp-order');
+var run = require('gulp-run');
+var runSequence = require('run-sequence');
 
 var baseDestination = './web';
 var jsDestination = baseDestination + '/javascripts';
@@ -76,4 +78,13 @@ gulp.task('serve', ['watch'], function() {
             open: true,
             log: 'debug'
         }));
-})
+});
+
+gulp.task('publish', function() {
+    baseDestination = '../tmp';
+    jsDestination = baseDestination + '/javascripts';
+    cssDestination = baseDestination + '/stylesheets';
+    runSequence('vendor', 'src', 'style', 'assets', function() {
+        run('git checkout gh-pages && cd .. && rm -r javascripts && rm -r stylesheets && cp -r ./tmp/* ./ && rm -r ./tmp && git add javascripts && git add stylesheets && git commit -a -m "Publish $(date)" && git push origin gh-pages && cd site && git checkout master').exec();
+    });
+});
