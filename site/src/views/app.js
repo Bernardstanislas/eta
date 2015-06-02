@@ -18,7 +18,9 @@ let App = React.createClass({
                 <div data-eta='header'>
                     <Header/>
                 </div>
-                <RouteHandler/>
+                <div data-eta='page-container' className='container'>
+                    <RouteHandler/>
+                </div>
             </div>
         );
     }

@@ -1,9 +1,10 @@
+let ImageFlipper = require('./image-flipper');
 
 let Home = React.createClass({
     render() {
         return (
-            <div className='page'>
-                kikoo
+            <div data-eta='home'>
+                <ImageFlipper/>
             </div>
         );
     }

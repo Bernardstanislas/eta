@@ -1,10 +1,10 @@
 let Agency = React.createClass({
     render() {
         return (
-            <div>
+            <div data-eta='agency'>
 
             </div>
-        )
+        );
     }
 });
 

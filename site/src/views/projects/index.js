@@ -1,7 +1,7 @@
 let Projects = React.createClass({
     render() {
         return (
-            <div>
+            <div data-eta='projects'>
 
             </div>
         )

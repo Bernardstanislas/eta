@@ -1,7 +1,7 @@
 let Contact = React.createClass({
     render() {
         return (
-            <div>
+            <div data-eta='contact'>
 
             </div>
         )
