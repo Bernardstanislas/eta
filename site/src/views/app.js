@@ -27,15 +27,15 @@ let App = React.createClass({
 });
 
 let routes = (
-    <Route name="Accueil" path="/" handler={App}>
-        <Route name="Projets" handler={Projects}/>
-        <Route name="Agence" handler={Agency}/>
-        <Route name="Contact" handler={Contact}/>
+    <Route name='Accueil' path='/' handler={App}>
+        <Route name='Projets' handler={Projects}/>
+        <Route name='Agence' handler={Agency}/>
+        <Route name='Contact' handler={Contact}/>
         <DefaultRoute handler={Home}/>
     </Route>
 );
 
-Router.run(routes, Router.HistoryLocation, (Handler) => {
+Router.run(routes, (Handler) => {
     React.render(<Handler/>, document.body);
 });
 
