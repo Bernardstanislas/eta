@@ -2,6 +2,7 @@ let Router = ReactRouter;
 
 let DefaultRoute = Router.DefaultRoute;
 let Route = Router.Route;
+let Redirect = Router.Redirect;
 let RouteHandler = Router.RouteHandler;
 
 
@@ -27,10 +28,12 @@ let App = React.createClass({
 });
 
 let routes = (
-    <Route name='Accueil' path='/' handler={App}>
+    <Route name='App' path='/' handler={App}>
+        <Route name='Accueil' handler={Home}/>
         <Route name='Projets' handler={Projects}/>
         <Route name='Agence' handler={Agency}/>
         <Route name='Contact' handler={Contact}/>
+        <Redirect from="/" to="Accueil" />
         <DefaultRoute handler={Home}/>
     </Route>
 );

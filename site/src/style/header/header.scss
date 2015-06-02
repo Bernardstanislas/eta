@@ -1,11 +1,17 @@
 [data-eta='header'] {
+  margin-top: 20px;
+
   .row {
     padding: 20px;
 
-    .col-md-4 {
+    .col-md-3 {
       text-align: center;
       padding: 20px;
       font-size: 2em;
+
+      a.active {
+        color: #000011;
+      }
     }
   }
 

@@ -1,9 +1,7 @@
 let ImageFlipper = React.createClass({
     componentWillMount() {
         this._interval = setInterval(() => {
-            this.setState({
-                randomIndex: this.state.randomIndex + 1
-            });
+            // TODO refresh the images
         }, 3000);
     },
     componentWillUnmount() {
@@ -11,12 +9,12 @@ let ImageFlipper = React.createClass({
     },
     render() {
         return (
-            <div className='row'>
-                <div className='col-md-6' ref='left'>
-                    <img src='http://placehold.it/400x800'/>
+            <div className='row' data-eta='image-flipper'>
+                <div className='col-md-6 text-center' ref='left'>
+                    <img src='http://dummyimage.com/400x800/6e6e6e/ababab&text=Image+de+gauche'/>
                 </div>
-                <div className='col-md-6' ref='right'>
-                    <img src='http://placehold.it/400x800'/>
+                <div className='col-md-6 text-center' ref='right'>
+                    <img src='http://dummyimage.com/400x800/6e6e6e/ababab&text=Image+de+droite'/>
                 </div>
             </div>
         );
