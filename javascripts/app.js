@@ -28,6 +28,7 @@ var Router = ReactRouter;
 
 var DefaultRoute = Router.DefaultRoute;
 var Route = Router.Route;
+var Redirect = Router.Redirect;
 var RouteHandler = Router.RouteHandler;
 
 var Header = require('views/header');
@@ -42,7 +43,7 @@ var App = React.createClass({ displayName: 'App',
     }
 });
 
-var routes = React.createElement(Route, { name: 'Accueil', path: '/', handler: App }, React.createElement(Route, { name: 'Projets', handler: Projects }), React.createElement(Route, { name: 'Agence', handler: Agency }), React.createElement(Route, { name: 'Contact', handler: Contact }), React.createElement(DefaultRoute, { handler: Home }));
+var routes = React.createElement(Route, { name: 'App', path: '/', handler: App }, React.createElement(Route, { name: 'Accueil', handler: Home }), React.createElement(Route, { name: 'Projets', handler: Projects }), React.createElement(Route, { name: 'Agence', handler: Agency }), React.createElement(Route, { name: 'Contact', handler: Contact }), React.createElement(Redirect, { from: '/', to: 'Accueil' }), React.createElement(DefaultRoute, { handler: Home }));
 
 Router.run(routes, function (Handler) {
     React.render(React.createElement(Handler, null), document.body);
@@ -69,7 +70,7 @@ var Link = ReactRouter.Link;
 var Header = React.createClass({ displayName: "Header",
     render: function render() {
         return React.createElement("div", { "data-eta": "header", className: "container" }, React.createElement("div", { className: "row" }, ["Accueil", "Projets", "Agence", "Contact"].map(function (onglet) {
-            return React.createElement("div", { className: "col-md-3" }, React.createElement(Link, { to: onglet }, onglet));
+            return React.createElement("div", { className: "col-md-3 text-center", key: onglet }, React.createElement(Link, { to: onglet }, onglet));
         })));
     }
 });
@@ -81,23 +82,19 @@ module.exports = Header;
 
 var ImageFlipper = React.createClass({ displayName: "ImageFlipper",
     componentWillMount: function componentWillMount() {
-        var _this = this;
-
-        this._interval = setInterval(function () {
-            _this.setState({
-                randomIndex: _this.state.randomIndex + 1
-            });
-        }, 3000);
+        this._interval = setInterval(function () {}, 3000);
     },
     componentWillUnmount: function componentWillUnmount() {
         clearInterval(this._interval);
     },
     render: function render() {
-        return React.createElement("div", { className: "row" }, React.createElement("div", { className: "col-md-6", ref: "left" }, React.createElement("img", { src: "http://placehold.it/400x800" })), React.createElement("div", { className: "col-md-6", ref: "right" }, React.createElement("img", { src: "http://placehold.it/400x800" })));
+        return React.createElement("div", { className: "row", "data-eta": "image-flipper" }, React.createElement("div", { className: "col-md-6 text-center", ref: "left" }, React.createElement("img", { src: "http://dummyimage.com/400x800/6e6e6e/ababab&text=Image+de+gauche" })), React.createElement("div", { className: "col-md-6 text-center", ref: "right" }, React.createElement("img", { src: "http://dummyimage.com/400x800/6e6e6e/ababab&text=Image+de+droite" })));
     }
 });
 
 module.exports = ImageFlipper;
+
+// TODO refresh the images
 
 },{}],"/Users/stan/Documents/Info/Projets/Eta/site/src/views/home/index.js":[function(require,module,exports){
 "use strict";

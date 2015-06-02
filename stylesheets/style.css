@@ -30,10 +30,16 @@ p {
   font-size: 40vh;
   text-align: center; }
 
-[data-eta='header'] .row {
-  padding: 20px; }
-  [data-eta='header'] .row .col-md-4 {
-    text-align: center;
-    padding: 20px;
-    font-size: 2em; }
+[data-eta='header'] {
+  margin-top: 20px; }
+  [data-eta='header'] .row {
+    padding: 20px; }
+    [data-eta='header'] .row .col-md-3 {
+      text-align: center;
+      padding: 20px;
+      font-size: 2em; }
+      [data-eta='header'] .row .col-md-3 a.active {
+        color: #000011; }
 
+[data-eta='home'] [data-eta='image-flipper'] {
+  margin-top: 40px; }
