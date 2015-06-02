@@ -1,10 +1,11 @@
 let Router = ReactRouter;
 
 let DefaultRoute = Router.DefaultRoute;
-let Link = Router.Link;
 let Route = Router.Route;
 let RouteHandler = Router.RouteHandler;
 
+
+let Header = require('views/header');
 let Home = require('views/home');
 let Projects = require('views/projects');
 let Agency = require('views/agency');
@@ -13,17 +14,9 @@ let Contact = require('views/contact');
 let App = React.createClass({
     render() {
         return (
-            <div className='page'>
-                <div data-eta='header' className='container'>
-                    <div className='row'>
-                        {['Accueil', 'Projets', 'Agence', 'Contact'].map((onglet) => {
-                            return (
-                                <div className='col-md-4'>
-                                    <Link to={onglet}>{onglet}</Link>
-                                </div>
-                            );
-                        })}
-                    </div>
+            <div className='app'>
+                <div data-eta='header'>
+                    <Header/>
                 </div>
                 <RouteHandler/>
             </div>
@@ -32,7 +25,7 @@ let App = React.createClass({
 });
 
 let routes = (
-    <Route name="Accueil" path="/" handler={Home}>
+    <Route name="Accueil" path="/" handler={App}>
         <Route name="Projets" handler={Projects}/>
         <Route name="Agence" handler={Agency}/>
         <Route name="Contact" handler={Contact}/>
@@ -40,7 +33,7 @@ let routes = (
     </Route>
 );
 
-Router.run(routes, function (Handler) {
+Router.run(routes, Router.HistoryLocation, (Handler) => {
     React.render(<Handler/>, document.body);
 });
 

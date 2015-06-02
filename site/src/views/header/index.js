@@ -7,7 +7,7 @@ let Header = React.createClass({
                 <div className='row'>
                     {['Accueil', 'Projets', 'Agence', 'Contact'].map((onglet) => {
                         return (
-                            <div className='col-md-4'>
+                            <div className='col-md-3'>
                                 <Link to={onglet}>{onglet}</Link>
                             </div>
                         );
