@@ -44,7 +44,7 @@ var App = React.createClass({ displayName: 'App',
 
 var routes = React.createElement(Route, { name: 'Accueil', path: '/', handler: App }, React.createElement(Route, { name: 'Projets', handler: Projects }), React.createElement(Route, { name: 'Agence', handler: Agency }), React.createElement(Route, { name: 'Contact', handler: Contact }), React.createElement(DefaultRoute, { handler: Home }));
 
-Router.run(routes, Router.HistoryLocation, function (Handler) {
+Router.run(routes, function (Handler) {
     React.render(React.createElement(Handler, null), document.body);
 });
 
