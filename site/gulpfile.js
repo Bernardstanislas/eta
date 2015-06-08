@@ -75,7 +75,7 @@ gulp.task('serve', ['watch'], function() {
     gulp.src('web')
         .pipe(server({
             livereload: true,
-            open: true,
+            open: false,
             log: 'debug'
         }));
 });
