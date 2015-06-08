@@ -39,7 +39,7 @@ var Contact = require('views/contact');
 
 var App = React.createClass({ displayName: 'App',
     render: function render() {
-        return React.createElement('div', { className: 'app' }, React.createElement('div', { 'data-eta': 'header' }, React.createElement(Header, null)), React.createElement('div', { 'data-eta': 'page-container', className: 'container' }, React.createElement(RouteHandler, null)));
+        return React.createElement('div', { className: 'app' }, React.createElement('div', { 'data-eta': 'header' }, React.createElement(Header, null)), React.createElement('div', { 'data-eta': 'page-container', className: 'container-fluid' }, React.createElement(RouteHandler, null)));
     }
 });
 
@@ -69,9 +69,9 @@ var Link = ReactRouter.Link;
 
 var Header = React.createClass({ displayName: "Header",
     render: function render() {
-        return React.createElement("div", { "data-eta": "header", className: "container" }, React.createElement("div", { className: "row" }, ["Accueil", "Projets", "Agence", "Contact"].map(function (onglet) {
-            return React.createElement("div", { className: "col-md-3 text-center", key: onglet }, React.createElement(Link, { to: onglet }, onglet));
-        })));
+        return React.createElement("div", { className: "container-fluid", "data-eta": "header" }, React.createElement("div", { "data-eta": "top" }, React.createElement("div", { className: "container" }, React.createElement("div", { "data-eta": "brand" }, "ETA"))), React.createElement("div", { "data-eta": "menu" }, React.createElement("div", { className: "container" }, React.createElement("div", { className: "row" }, ["Accueil", "Projets", "Agence", "Contact"].map(function (tab) {
+            return React.createElement("div", { className: "col-md-2 text-center", "data-eta": "menu-link", key: tab }, React.createElement(Link, { to: tab }, tab));
+        })))));
     }
 });
 
@@ -88,7 +88,7 @@ var ImageFlipper = React.createClass({ displayName: "ImageFlipper",
         clearInterval(this._interval);
     },
     render: function render() {
-        return React.createElement("div", { className: "row", "data-eta": "image-flipper" }, React.createElement("div", { className: "col-md-6 text-center", ref: "left" }, React.createElement("img", { src: "http://dummyimage.com/400x800/6e6e6e/ababab&text=Image+de+gauche" })), React.createElement("div", { className: "col-md-6 text-center", ref: "right" }, React.createElement("img", { src: "http://dummyimage.com/400x800/6e6e6e/ababab&text=Image+de+droite" })));
+        return React.createElement("div", { className: "row", "data-eta": "image-flipper" }, React.createElement("div", { className: "col-md-10 col-md-offset-1" }, React.createElement("img", { "data-eta": "flipper-left", src: "http://dummyimage.com/800x800/6e6e6e/ababab&text=Image+de+gauche" }), React.createElement("img", { "data-eta": "flipper-right", src: "http://dummyimage.com/800x800/6e6e6e/ababab&text=Image+de+droite" })));
     }
 });
 
