@@ -10,11 +10,9 @@ let ImageFlipper = React.createClass({
     render() {
         return (
             <div className='row' data-eta='image-flipper'>
-                <div className='col-md-6 text-center' ref='left'>
-                    <img src='http://dummyimage.com/400x800/6e6e6e/ababab&text=Image+de+gauche'/>
-                </div>
-                <div className='col-md-6 text-center' ref='right'>
-                    <img src='http://dummyimage.com/400x800/6e6e6e/ababab&text=Image+de+droite'/>
+                <div className='col-md-10 col-md-offset-1'>
+                    <img data-eta='flipper-left' src='http://dummyimage.com/800x800/6e6e6e/ababab&text=Image+de+gauche'/>
+                    <img data-eta='flipper-right' src='http://dummyimage.com/800x800/6e6e6e/ababab&text=Image+de+droite'/>
                 </div>
             </div>
         );

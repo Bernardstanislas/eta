@@ -1,5 +1,15 @@
 [data-eta='home'] {
   [data-eta='image-flipper'] {
-    margin-top: 40px;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    text-align: center;
+
+    [data-eta='flipper-left'] {
+      margin-right: 10px;
+    }
+
+    [data-eta='flipper-right'] {
+      margin-left: 10px;
+    }
   }
 }
