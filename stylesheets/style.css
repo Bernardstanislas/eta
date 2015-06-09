@@ -57,8 +57,17 @@ body {
 [data-eta='home'] [data-eta='image-flipper'] {
   margin-top: 60px;
   margin-bottom: 60px;
-  text-align: center; }
+  text-align: center;
+  position: relative; }
   [data-eta='home'] [data-eta='image-flipper'] [data-eta='flipper-left'] {
-    margin-right: 10px; }
+    margin-right: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    max-width: calc(50% - 10px); }
   [data-eta='home'] [data-eta='image-flipper'] [data-eta='flipper-right'] {
-    margin-left: 10px; }
+    margin-left: 10px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    max-width: calc(50% - 10px); }
