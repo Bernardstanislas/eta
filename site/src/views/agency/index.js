@@ -1,7 +1,8 @@
 let Agency = React.createClass({
+    displayName: 'Agency',
     render() {
         return (
-            <div data-eta='agency'>
+            <div>
 
             </div>
         );

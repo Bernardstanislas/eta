@@ -1,10 +1,11 @@
 let Contact = React.createClass({
+    displayName: 'Contact',
     render() {
         return (
-            <div data-eta='contact'>
+            <div>
 
             </div>
-        )
+        );
     }
 });
 
