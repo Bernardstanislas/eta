@@ -83,7 +83,7 @@ var Header = React.createClass({
             padding: '0'
         },
         background: {
-            backgroundImage: 'url("../images/header.jpg")',
+            backgroundImage: 'url("./images/header.jpg")',
             backgroundSize: 'cover',
             backgroundPositionY: '20%',
             height: '200px',
