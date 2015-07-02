@@ -1,4 +1,5 @@
 let ImageFlipper = React.createClass({
+    displayName: 'ImageFlipper',
     componentWillMount() {
         this._interval = setInterval(() => {
             // TODO refresh the images
@@ -7,13 +8,22 @@ let ImageFlipper = React.createClass({
     componentWillUnmount() {
         clearInterval(this._interval);
     },
+    style: {
+        flipper: {
+            display: 'flex',
+            justifyContent: 'center'
+        },
+        image: {
+            width: '500px',
+            margin: '0 50px 0 50px'
+        }
+    },
     render() {
+        let {style} = this;
         return (
-            <div className='row' data-eta='image-flipper'>
-                <div className='col-md-10 col-md-offset-1'>
-                    <img data-eta='flipper-left' src='http://dummyimage.com/800x800/6e6e6e/ababab&text=Image+de+gauche'/>
-                    <img data-eta='flipper-right' src='http://dummyimage.com/800x800/6e6e6e/ababab&text=Image+de+droite'/>
-                </div>
+            <div style={style.flipper}>
+                <img src='http://dummyimage.com/500x800/6e6e6e/ababab&text=Image+de+gauche' style={style.image}/>
+                <img src='http://dummyimage.com/500x800/6e6e6e/ababab&text=Image+de+droite' style={style.image}/>
             </div>
         );
     }
