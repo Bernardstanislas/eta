@@ -13,13 +13,19 @@ let Agency = require('views/agency');
 let Contact = require('views/contact');
 
 let App = React.createClass({
+    displayName: 'Application',
+    style: {
+        page: {
+            height: '100%',
+            padding: '50px 100px 0 100px'
+        }
+    },
     render() {
+        let {style} = this;
         return (
-            <div className='app'>
-                <div data-eta='header'>
-                    <Header/>
-                </div>
-                <div data-eta='page-container' className='container-fluid'>
+            <div>
+                <Header/>
+                <div style={style.page}>
                     <RouteHandler/>
                 </div>
             </div>
@@ -28,12 +34,12 @@ let App = React.createClass({
 });
 
 let routes = (
-    <Route name='App' path='/' handler={App}>
-        <Route name='Accueil' handler={Home}/>
-        <Route name='Projets' handler={Projects}/>
-        <Route name='Agence' handler={Agency}/>
-        <Route name='Contact' handler={Contact}/>
-        <Redirect from="/" to="Accueil" />
+    <Route handler={App} name='App' path='/'>
+        <Route handler={Home} name='Accueil'/>
+        <Route handler={Projects} name='Projets'/>
+        <Route handler={Agency} name='Agence'/>
+        <Route handler={Contact} name='Contact'/>
+        <Redirect from='/' to='Accueil'/>
         <DefaultRoute handler={Home}/>
     </Route>
 );
