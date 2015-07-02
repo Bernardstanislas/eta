@@ -16,58 +16,9 @@
   70% {
     opacity: 1; } }
 
-.animatedIntroduction {
-  -webkit-animation-name: etaHome;
-  animation-name: etaHome;
-  -webkit-animation-duration: 3s;
-  animation-duration: 3s;
-  opacity: 0; }
-
-.introduction {
-  font-size: 40vh;
-  text-align: center; }
-
 body {
-  font-family: 'Roboto', sans-serif;
+  margin: 0;
   background-image: url("../images/eta-cross.png");
   background-repeat: repeat;
-  overflow-x: hidden; }
-
-[data-eta='header'] {
-  width: 100vw;
-  padding: 0; }
-  [data-eta='header'] [data-eta='top'] {
-    background-image: url("../images/header.jpg");
-    background-size: cover;
-    background-position-y: 20%;
-    min-height: 400px; }
-    [data-eta='header'] [data-eta='top'] [data-eta='brand'] {
-      font-family: 'Roboto', sans-serif;
-      padding-top: 20px;
-      color: white;
-      font-size: 15em; }
-  [data-eta='header'] [data-eta='menu'] {
-    background-color: #00838F; }
-    [data-eta='header'] [data-eta='menu'] [data-eta='menu-link'] {
-      padding: 10px;
-      font-size: 2em; }
-      [data-eta='header'] [data-eta='menu'] [data-eta='menu-link'] a {
-        color: white; }
-
-[data-eta='home'] [data-eta='image-flipper'] {
-  margin-top: 60px;
-  margin-bottom: 60px;
-  text-align: center;
-  position: relative; }
-  [data-eta='home'] [data-eta='image-flipper'] [data-eta='flipper-left'] {
-    margin-right: 10px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    max-width: calc(50% - 10px); }
-  [data-eta='home'] [data-eta='image-flipper'] [data-eta='flipper-right'] {
-    margin-left: 10px;
-    position: absolute;
-    top: 0;
-    right: 0;
-    max-width: calc(50% - 10px); }
+  font-family: "Roboto", sans-serif;
+  height: 100%; }
