@@ -41,7 +41,7 @@ var App = React.createClass({
     style: {
         page: {
             height: '100%',
-            padding: '50px 100px 0 100px'
+            padding: '50px 200px 0 200px'
         }
     },
     render: function render() {
@@ -196,12 +196,33 @@ var Introduction = React.createClass({
 module.exports = Introduction;
 
 },{}],"/Users/stan/Documents/Info/Projets/Eta/site/src/views/projects/index.js":[function(require,module,exports){
-"use strict";
+'use strict';
 
 var Projects = React.createClass({
-    displayName: "Projects",
+    displayName: 'Projects',
+    style: {
+        title: {
+            fontSize: '2em'
+        },
+        gallery: {
+            display: 'flex',
+            flexWrap: 'wrap'
+        },
+        thumbnail: {
+            width: '200px',
+            margin: '5px'
+        }
+    },
     render: function render() {
-        return React.createElement("div", null);
+        var fakeArray = [];
+        for (var i = 0; i < 50; i++) {
+            fakeArray[i] = 'dummy';
+        }
+        var style = this.style;
+
+        return React.createElement('div', null, React.createElement('h1', { style: style.title }, 'Projets réalisés'), React.createElement('div', { style: style.gallery }, fakeArray.map(function () {
+            return React.createElement('div', { style: style.thumbnail }, React.createElement('img', { src: 'http://dummyimage.com/200x150/6e6e6e/ababab&text=Projet', style: style.image }));
+        })));
     }
 });
 
