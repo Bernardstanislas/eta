@@ -26,23 +26,10 @@
   }
 }
 
-.animatedIntroduction {
-  -webkit-animation-name: etaHome;
-  animation-name: etaHome;
-  -webkit-animation-duration: 3s;
-  animation-duration: 3s;
-  opacity: 0;
-}
-
-.introduction {
-  font-size: 40vh;
-  text-align: center;
-}
-
 body {
-  font-family: 'Roboto', sans-serif;
-  background-image: url('../images/eta-cross.png');
-  background-repeat: repeat;
-
-  overflow-x: hidden;
+    margin: 0;
+    background-image: url("../images/eta-cross.png");
+    background-repeat: repeat;
+    font-family: "Roboto", sans-serif;
+    height: 100%;
 }
