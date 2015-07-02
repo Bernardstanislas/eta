@@ -17,7 +17,7 @@ let App = React.createClass({
     style: {
         page: {
             height: '100%',
-            padding: '50px 100px 0 100px'
+            padding: '50px 200px 0 200px'
         }
     },
     render() {
