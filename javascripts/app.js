@@ -6,7 +6,7 @@ var Introduction = require('views/introduction');
 React.render(React.createElement(Introduction), window.document.getElementById('page'));
 setTimeout(function () {
     require('views/app');
-}, 3000);
+}, 4000);
 
 },{"views/app":"/Users/stan/Documents/Info/Projets/Eta/site/src/views/app.js","views/introduction":"/Users/stan/Documents/Info/Projets/Eta/site/src/views/introduction/index.js"}],"/Users/stan/Documents/Info/Projets/Eta/site/src/views/agency/index.js":[function(require,module,exports){
 "use strict";
@@ -41,7 +41,7 @@ var App = React.createClass({
     style: {
         page: {
             height: '100%',
-            padding: '50px 200px 0 200px'
+            padding: '100px 200px 0 200px'
         }
     },
     render: function render() {
@@ -51,7 +51,7 @@ var App = React.createClass({
     }
 });
 
-var routes = React.createElement(Route, { handler: App, name: 'App', path: '/' }, React.createElement(Route, { handler: Home, name: 'Accueil' }), React.createElement(Route, { handler: Projects, name: 'Projets' }), React.createElement(Route, { handler: Agency, name: 'Agence' }), React.createElement(Route, { handler: Contact, name: 'Contact' }), React.createElement(Redirect, { from: '/', to: 'Accueil' }), React.createElement(DefaultRoute, { handler: Home }));
+var routes = React.createElement(Route, { handler: App, name: 'App', path: '/' }, React.createElement(Route, { handler: Home, name: 'Accueil' }), React.createElement(Route, { handler: Projects, name: 'Projets' }), React.createElement(Route, { handler: Agency, name: 'Agence' }), React.createElement(Route, { handler: Contact, name: 'Contact' }), React.createElement(Redirect, { from: '/', to: 'Accueil' }), React.createElement(DefaultRoute, { handler: Projects }));
 
 Router.run(routes, function (Handler) {
     React.render(React.createElement(Handler, null), document.body);
@@ -80,34 +80,40 @@ var Header = React.createClass({
     displayName: 'Header',
     style: {
         container: {
+            width: '1000px',
+            position: 'fixed',
             padding: '0'
         },
         background: {
-            backgroundImage: 'url("./images/header.jpg")',
-            backgroundSize: 'cover',
-            backgroundPositionY: '20%',
-            height: '200px',
+            // backgroundImage: 'url("./images/header.jpg")',
+            // backgroundSize: 'cover',
+            // backgroundPositionY: '20%',
+            height: '50px',
             width: '100%'
         },
         brand: {
             marginLeft: '20%',
+            marginTop: '10px',
+            marginBottom: '20px',
             fontFamily: '"Roboto", sans-serif',
             paddingTop: '20px',
-            color: 'white',
-            fontSize: '8em'
+            color: 'grey',
+            fontSize: '4em'
         },
         menu: {
-            backgroundColor: '#00838F',
+            // backgroundColor: '#DDDDDD',
+            paddingTop: '20px',
             display: 'flex',
-            padding: '10px 0 10px 20%'
+            padding: '10px 0 10px 20%',
+            marginTop: '20px'
         },
         linkBox: {
             padding: '10px',
-            fontSize: '1.5em',
+            fontSize: '3em',
             marginRight: '20px'
         },
         linkText: {
-            color: 'white',
+            color: 'grey',
             textDecoration: 'none'
         },
         activeLink: {
@@ -118,7 +124,7 @@ var Header = React.createClass({
     render: function render() {
         var style = this.style;
 
-        return React.createElement('div', { style: style.container }, React.createElement('div', { style: style.background }, React.createElement('div', { style: style.brand }, 'ETA')), React.createElement('div', { style: style.menu }, ['Accueil', 'Projets', 'Agence', 'Contact'].map(function (tab) {
+        return React.createElement('div', { style: style.container }, React.createElement('div', { style: style.background }, React.createElement('div', { style: style.brand }, 'Eric Thave Architecture')), React.createElement('div', { style: style.menu }, ['Projets', 'Agence', 'Contact'].map(function (tab) {
             return React.createElement('div', { className: 'col-md-2 text-center', key: tab, style: style.linkBox }, React.createElement(Link, { activeStyle: style.activeLink, style: style.linkText, to: tab }, tab));
         })));
     }
@@ -139,24 +145,25 @@ var ImageFlipper = React.createClass({
     },
     style: {
         flipper: {
+            marginTop: '100px',
             display: 'flex',
             justifyContent: 'center'
         },
         image: {
-            width: '500px',
-            margin: '0 50px 0 50px'
-        }
+            width: '500px' }
     },
     render: function render() {
         var style = this.style;
 
-        return React.createElement('div', { style: style.flipper }, React.createElement('img', { src: 'http://dummyimage.com/500x800/6e6e6e/ababab&text=Image+de+gauche', style: style.image }), React.createElement('img', { src: 'http://dummyimage.com/500x800/6e6e6e/ababab&text=Image+de+droite', style: style.image }));
+        return React.createElement('div', { style: style.flipper }, React.createElement('img', { src: 'http://lorempixel.com/500/800/city/', style: style.image }), React.createElement('img', { src: 'http://lorempixel.com/500/800/city/', style: style.image }));
     }
 });
 
 module.exports = ImageFlipper;
 
 // TODO refresh the images
+
+// margin: '0 50px 0 50px'
 
 },{}],"/Users/stan/Documents/Info/Projets/Eta/site/src/views/home/index.js":[function(require,module,exports){
 'use strict';
@@ -178,18 +185,24 @@ module.exports = Home;
 var Introduction = React.createClass({
     displayName: 'Introduction',
     style: {
-        WebkitAnimationName: 'etaHome',
-        animationName: 'etaHome',
-        WebkitAnimationDuration: '3s',
-        animationDuration: '3s',
-        opacity: '0',
-        fontSize: '40vh',
-        textAlign: 'center'
+        container: {
+            display: 'flex',
+            flexFlow: 'vertical'
+        },
+        title: {
+            WebkitAnimationName: 'etaHome',
+            animationName: 'etaHome',
+            WebkitAnimationDuration: '4s',
+            animationDuration: '4s',
+            opacity: '0',
+            fontSize: '40vh',
+            textAlign: 'center'
+        }
     },
     render: function render() {
         var style = this.style;
 
-        return React.createElement('div', { style: style }, 'ETA');
+        return React.createElement('div', { style: style.container }, React.createElement('div', { style: style.title }, 'ETA'));
     }
 });
 
@@ -209,19 +222,28 @@ var Projects = React.createClass({
             flexWrap: 'wrap'
         },
         thumbnail: {
-            width: '200px',
             margin: '5px'
+        },
+        categories: {
+            marginTop: '50px',
+            display: 'flex'
+        },
+        category: {
+            margin: '10px',
+            fontSize: '1.5em'
         }
     },
     render: function render() {
         var fakeArray = [];
-        for (var i = 0; i < 50; i++) {
-            fakeArray[i] = 'dummy';
+        for (var i = 0; i < 150; i++) {
+            fakeArray[i] = 250 + Math.round(Math.random() * 350);
         }
         var style = this.style;
 
-        return React.createElement('div', null, React.createElement('h1', { style: style.title }, 'Projets réalisés'), React.createElement('div', { style: style.gallery }, fakeArray.map(function () {
-            return React.createElement('div', { style: style.thumbnail }, React.createElement('img', { src: 'http://dummyimage.com/200x150/6e6e6e/ababab&text=Projet', style: style.image }));
+        return React.createElement('div', null, React.createElement('div', { style: style.categories }, ['Décoration', 'Logemement', 'Tertiaire', 'Commerce', 'Maison', 'Aménagement urbain', 'Equipement'].map(function (category) {
+            return React.createElement('div', { key: category, style: style.category }, category);
+        })), React.createElement('div', { style: style.gallery }, fakeArray.map(function (width) {
+            return React.createElement('div', { style: style.thumbnail }, React.createElement('img', { src: 'http://lorempixel.com/g/' + width + '/500/city/', style: style.image }));
         })));
     }
 });
